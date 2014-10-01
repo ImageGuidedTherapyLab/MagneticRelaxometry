@@ -1,0 +1,197 @@
+%
+%  This simple example illustrates how documents can be
+%  split into smaller segments, each segment processed
+%  by latex2html separately.  This document can be
+%  processed through latex and latex2html with the
+%  corresponding makefile.
+%
+
+\documentclass{article}         % Must use LaTeX 2e
+\usepackage[plainpages=false, colorlinks=true, citecolor=black, filecolor=black, linkcolor=black, urlcolor=black]{hyperref}		
+%\usepackage{html}
+\usepackage[left=.5in,right=.5in,top=.5in,bottom=.5in]{geometry}
+\usepackage{makeidx,color,boxedminipage,verbatim}
+\usepackage{wrapfig,graphicx,float}
+\usepackage{amsmath,amsthm,amsfonts,amscd,amssymb} 
+\usepackage{algorithm,algorithmic}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%	Some math support.					     %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%	Theorem environments (these need the amsthm package)
+%
+%% \theoremstyle{plain} %% This is the default
+
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{ax}{Axiom}
+
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+
+\theoremstyle{remark}
+\newtheorem{rem}{Remark}[section]
+\newtheorem*{notation}{Notation}
+\newtheorem*{exrcs}{Exercise}
+\newtheorem*{exmple}{Example}
+
+%\numberwithin{equation}{section}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%	Macros.							     %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%	Here some macros that are needed in this document:
+\newcommand{\picdir}{./pdffig}
+\newcommand{\rffrph}{\left(\delta \omega t + \varphi\right)}
+\newcommand{\intphse}{\left( \int_0^t \Delta \omega(\tau) d\tau \right)}
+\newcommand{\eqn}[1]{(\ref{#1})}
+%
+\title{Nanoparticle Magnetic Relaxometry for Cancer Detection}
+\author{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}                % The start of the document
+\maketitle
+\begin{abstract}                
+Early detection is key to survival for cancer patients.  Screening
+is the best way to catch cancer in its early stages, but for many anatomical
+sites no screening technique is available.  Current screening techniques can
+often yield false positives or inconclusive results, which lead to
+unnecessary invasive procedures and treatment. Additionally, even the best
+methods can only detect tumors as small as 2 mm in diameter, which is
+already >10 million cells.  In an effort to provide clinicians with a
+reliable non-invasive method of detecting cancer in its very early stages, a
+system that uses the magnetic relaxometry properties of nanoparticles has
+been developed to detect and count clusters of cancer cells as few as
+20,000.  For most cancer patients, detection this early could mean the
+difference between successful and unsuccessful treatment.  
+\end{abstract}                
+
+\paragraph{Overall Goals:}  
+There are many questions to be answered regarding this new system.  Below
+are project goals that are needed to translate this technology into the
+clinical setting.
+\begin{enumerate}
+\item	Develop and calibrate a model for detecting the number and location
+of nanoparticles in a sample by solving an inverse problem set with known
+sources.
+\item	Determine the optimal biokinetic model to describe the nanoparticle
+interactions with different cell lines.
+\item	Evaluate the feasibility and resolution limitations of imaging
+disease with magnetic relaxometry.
+\item	Differentiate between magnetic relaxometry signals from
+nanoparticles bound to different targets.
+\end{enumerate}
+
+\paragraph{Action Items:}  
+\begin{itemize}
+\item Develop a mathematical model of the Relaxometry detection system from 
+first principles \cite{Flynn2005}
+\item Acquire Phantom data in 1, 2, 3, 4, 5 point sources.  Build a data
+dictionary of signals from combinatorics of sources and source locations. 
+   \begin{itemize}
+   \item Apply unsupervised machine learning (clustering algorithms) 
+         to classify the signal from 1, 2, 3, 4, or 5 
+         sources at different locations~\cite{Fraley2002,Sebastiani2003,Kapp2007,
+         Shi2014,Criminisi2013,Murphy2012a,Bishop2006,Gelman2007}. 
+         Ie how ill-posed is the problem ? which
+         combinations of sources and source locations cluster together ? 
+   \end{itemize}
+\item Validate phantom measurements using deterministic quasi-newton curve fit of math 
+      model~\cite{Fegan2010,Adolphi2010,Hathaway2011,Tessier2012,Adolphi2014,Schwindt2013,Shen2012,Hajdu2013,Paik2013,Amiri2011}. 
+      Use initial guess as centroid of machine.
+\item Compare deterministic inverse problem to advanced methods:
+\begin{enumerate}
+\item Global optimization using dictionary. 
+   \begin{itemize}
+   \item in-silico simulate 1, 2, 3, 4, 5 point sources. Build a dictionary of 
+      signals from combinatorics of sources and source locations. 
+   \item Code signal forward projection operator as a GPU kernel call from MATLAB
+   \end{itemize}
+\item Gaussian Process model~\cite{Rasmussen2006} with phantom data as training data
+   \begin{itemize}
+   \item Formulate Gaussian Process model within a physics based
+         optimization framework~\cite{Constantinescu2013} , ie
+         constrain the optimization by the physics model
+   \item Solve using MCMC~\cite{Liu2002,Martin2012,kaipio2005statistical,Tan2012}
+   \end{itemize}
+\end{enumerate}
+\item Evaluate within the context of a classical statistics framework, ie \cite{Rosner2010} Ch 11.
+\end{itemize}
+
+\section{Magnetostatics, Hard Ferrormagnets (M given and J=0)}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Following Jackson~\cite{jackson1999classical}, `hard' ferromagnets,
+having a magnetization that is essentially independent of the applied
+fields may be treated as if they have a fixed magnetization $\vec{M}(x)$.
+Guass law for magnetism becomes
+\[
+  \nabla \cdot \vec{B} = 
+  \mu_0 \nabla \cdot (  \vec{H} + \vec{M}) 
+\]
+Given the magnetic scalar potential 
+\[
+   \nabla \Phi_M \equiv \vec{H}
+\]
+and the effective magnetic-charge density
+\[
+   \rho_M \equiv - \nabla \cdot  \vec{M}
+\]
+Gauss law reduces to a poisson equation
+\[
+   \nabla^2 \Phi_M = \rho_M 
+\]
+The Greens function solution to this equation is
+\[
+   \Phi_M = \int G(x,y) \rho_M(y) dy 
+   \qquad
+   G(x,y) = \frac{1}{4 \; \pi \; r}
+\]
+Under the assumption that the 
+effective magnetic-charge density
+is of the form of the divergence of a point source magnetic dipole,
+$\vec{\mu}\in \mathbb{R}^3$
+\[
+   \rho_M  (x) = \nabla_x \cdot \vec{\mu} \delta(x - x_0)
+\]
+The solution must be interpreted in the sense of distributions
+and reduces to the classical dipole equations
+\[
+\begin{split}
+   \Phi_M & = \int G(x,y) ( \nabla_y \cdot \vec{\mu} \delta(y - x_0) ) dy 
+    \\
+          & = \int
+               \left(
+                \frac{\partial}{\partial y_1} G(x,y) \mu_1 \delta(y - x_0) 
+                    +
+                \frac{\partial}{\partial y_2} G(x,y) \mu_2 \delta(y - x_0) 
+                    +
+                \frac{\partial}{\partial y_3} G(x,y) \mu_3 \delta(y - x_0) 
+               \right)
+               dy 
+    \\
+          &  = \nabla_x G(x,x_0)  \cdot \vec{\mu} 
+    \\
+          & = \frac{\vec{r} \cdot \vec{\mu} }{ 4 \; \pi \; r^3}  
+\end{split}
+\]
+\[
+  \vec{B} = \mu_0 \nabla \Phi_M  =  \frac{\mu_0 }{ 4\pi} 
+      \left( 
+   \frac{ 3 \vec{r} (\vec{r} \cdot \vec{\mu})}{r^5}  - \frac{\vec{\mu}}{r^3}
+     \right)
+\]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nocite{*}
+\bibliographystyle{plainnat}  % Here the bibliography
+\bibliography{relaxometry}
+
+\end{document}
