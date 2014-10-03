@@ -295,9 +295,9 @@ for fnum=1:numel(infilename)
     FileFolder=pathstr;
     
     if fnum==1
-        fprintf('\n\n')
+%         fprintf('\n\n')
     end
-    fprintf('Converting ''%s''...',FileNameShort)
+    %fprintf('Converting ''%s''...',FileNameShort)
     
     fid=fopen(FileNameLong);
     
@@ -339,7 +339,7 @@ for fnum=1:numel(infilename)
         MATFileNameLong=fullfile(FileFolder,MATFileNameShort);
         try
             save(MATFileNameLong,'ConvertedData','ConvertVer','ChanNames')
-            fprintf('\n\nConversion complete (saved in ''%s'').\n\n',MATFileNameShort)
+            %fprintf('\n\nConversion complete (saved in ''%s'').\n\n',MATFileNameShort)
         catch exception
             fprintf('\n\nConversion complete (could not save ''%s'').\n\t%s: %s\n\n',MATFileNameShort,exception.identifier,...
                 exception.message)

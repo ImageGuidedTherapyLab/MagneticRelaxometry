@@ -9,7 +9,6 @@ clear all; close all;
 % If you have already imported data, 
 % hard code the file (Data) that you wish to analyze
 dataFolder = (strcat(pwd,'/Data/10_01_14'));
-
 currFolder = pwd;
 matFiles = strcat(dataFolder, '/*.mat');
 
