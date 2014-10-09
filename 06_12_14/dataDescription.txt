@@ -1,0 +1,256 @@
+br2_06_12_001.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_002.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_003.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_004.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_005.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_006.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_007.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_008.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_009.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_010.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_011.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_012.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_013.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_014.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_015.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_016.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_017.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_018.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_019.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_020.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_021.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_022.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_023.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_024.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_025.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_026.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_027.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_028.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_029.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_030.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_031.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_032.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_033.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_034.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_035.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_036.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_037.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_038.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_039.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_040.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_041.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_042.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_043.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_044.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_045.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_046.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_047.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_048.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_049.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_050.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_051.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_052.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_053.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_054.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_055.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_056.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_057.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_058.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_059.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_060.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_061.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_062.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_063.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_064.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_065.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_066.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_067.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_068.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_069.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_070.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_071.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_072.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_073.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_074.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_075.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_076.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_077.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_078.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_079.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_080.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_081.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_082.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_083.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_084.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_085.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_086.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_087.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_088.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_089.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_090.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_091.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_092.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_093.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_094.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_095.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_096.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_097.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_098.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_099.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_100.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_101.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_102.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_103.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_104.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_105.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_106.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_107.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_108.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_109.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_110.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_111.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_112.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_113.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_114.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_115.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_116.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_117.tdms, Group 1- 1.5 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 1.500000
+br2_06_12_118.tdms, Group 1- 1.5 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 1.500000
+br2_06_12_119.tdms, Group 1- 1.5 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 1.500000
+br2_06_12_120.tdms, Group 1- 1.5 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 1.500000
+br2_06_12_121.tdms, Group 1- 1.5 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 1.500000
+br2_06_12_122.tdms, Group 1- 1.5 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 1.500000
+br2_06_12_123.tdms, Group 1- 1.5 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 1.500000
+br2_06_12_124.tdms, Group 1- 1.5 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 1.500000
+br2_06_12_125.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_126.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_127.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_128.tdms, Background Studies,  time=  0 Bkg    Volume= 0.000000 Concentration= 0.000000
+br2_06_12_129.tdms, Group 1- 1.5 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 1.500000
+br2_06_12_130.tdms, Group 1- 1.5 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 1.500000
+br2_06_12_131.tdms, Group 1- 1.5 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 1.500000
+br2_06_12_132.tdms, Group 1- 1.5 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 1.500000
+br2_06_12_133.tdms, Group 1- 1.5 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 1.500000
+br2_06_12_134.tdms, Group 1- 1.5 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 1.500000
+br2_06_12_135.tdms, Group 1- 1.5 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 1.500000
+br2_06_12_136.tdms, Group 1- 1.5 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 1.500000
+br2_06_12_137.tdms, Group 1- 0.15 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.150000
+br2_06_12_138.tdms, Group 1- 0.15 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.150000
+br2_06_12_139.tdms, Group 1- 0.15 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.150000
+br2_06_12_140.tdms, Group 1- 0.15 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.150000
+br2_06_12_141.tdms, Group 1- 0.15 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.150000
+br2_06_12_142.tdms, Group 1- 0.15 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.150000
+br2_06_12_143.tdms, Group 1- 0.15 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.150000
+br2_06_12_144.tdms, Group 1- 0.15 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.150000
+br2_06_12_145.tdms, Group 1- 1.5 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 1.500000
+br2_06_12_146.tdms, Group 1- 1.5 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 1.500000
+br2_06_12_147.tdms, Group 1- 1.5 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 1.500000
+br2_06_12_148.tdms, Group 1- 1.5 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 1.500000
+br2_06_12_149.tdms, Group 1- 1.5 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 1.500000
+br2_06_12_150.tdms, Group 1- 1.5 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 1.500000
+br2_06_12_151.tdms, Group 1- 1.5 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 1.500000
+br2_06_12_152.tdms, Group 1- 1.5 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 1.500000
+br2_06_12_153.tdms, Group 1- 0.015 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.015000
+br2_06_12_154.tdms, Group 1- 0.015 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.015000
+br2_06_12_155.tdms, Group 1- 0.015 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.015000
+br2_06_12_156.tdms, Group 1- 0.015 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.015000
+br2_06_12_157.tdms, Group 1- 0.015 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.015000
+br2_06_12_158.tdms, Group 1- 0.015 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.015000
+br2_06_12_159.tdms, Group 1- 0.015 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.015000
+br2_06_12_160.tdms, Group 1- 0.015 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.015000
+br2_06_12_161.tdms, Group 1- 0.0015 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.001500
+br2_06_12_162.tdms, Group 1- 0.0015 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.001500
+br2_06_12_163.tdms, Group 1- 0.0015 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.001500
+br2_06_12_164.tdms, Group 1- 0.0015 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.001500
+br2_06_12_165.tdms, Group 1- 0.0015 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.001500
+br2_06_12_166.tdms, Group 1- 0.0015 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.001500
+br2_06_12_167.tdms, Group 1- 0.0015 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.001500
+br2_06_12_168.tdms, Group 1- 0.0015 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.001500
+br2_06_12_169.tdms, Group 1- 0.00015 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.000150
+br2_06_12_170.tdms, Group 1- 0.00015 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.000150
+br2_06_12_171.tdms, Group 1- 0.00015 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.000150
+br2_06_12_172.tdms, Group 1- 0.00015 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.000150
+br2_06_12_173.tdms, Group 1- 0.00015 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.000150
+br2_06_12_174.tdms, Group 1- 0.00015 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.000150
+br2_06_12_175.tdms, Group 1- 0.00015 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.000150
+br2_06_12_176.tdms, Group 1- 0.00015 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.000150
+br2_06_12_177.tdms, Group 2- 1.5 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 1.500000
+br2_06_12_178.tdms, Group 2- 1.5 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 1.500000
+br2_06_12_179.tdms, Group 2- 1.5 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 1.500000
+br2_06_12_180.tdms, Group 2- 1.5 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 1.500000
+br2_06_12_181.tdms, Group 2- 1.5 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 1.500000
+br2_06_12_182.tdms, Group 2- 1.5 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 1.500000
+br2_06_12_183.tdms, Group 2- 1.5 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 1.500000
+br2_06_12_184.tdms, Group 2- 1.5 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 1.500000
+br2_06_12_185.tdms, Group 2- 0.15 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.150000
+br2_06_12_186.tdms, Group 2- 0.15 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.150000
+br2_06_12_187.tdms, Group 2- 0.15 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.150000
+br2_06_12_188.tdms, Group 2- 0.15 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.150000
+br2_06_12_189.tdms, Group 2- 0.15 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.150000
+br2_06_12_190.tdms, Group 2- 0.15 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.150000
+br2_06_12_191.tdms, Group 2- 0.15 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.150000
+br2_06_12_192.tdms, Group 2- 0.15 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.150000
+br2_06_12_193.tdms, Group 2- 0.015 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.015000
+br2_06_12_194.tdms, Group 2- 0.015 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.015000
+br2_06_12_195.tdms, Group 2- 0.015 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.015000
+br2_06_12_196.tdms, Group 2- 0.015 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.015000
+br2_06_12_197.tdms, Group 2- 0.015 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.015000
+br2_06_12_198.tdms, Group 2- 0.015 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.015000
+br2_06_12_199.tdms, Group 2- 0.015 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.015000
+br2_06_12_200.tdms, Group 2- 0.015 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.015000
+br2_06_12_201.tdms, Group 2- 0.0015 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.001500
+br2_06_12_202.tdms, Group 2- 0.0015 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.001500
+br2_06_12_203.tdms, Group 2- 0.0015 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.001500
+br2_06_12_204.tdms, Group 2- 0.0015 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.001500
+br2_06_12_205.tdms, Group 2- 0.0015 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.001500
+br2_06_12_206.tdms, Group 2- 0.0015 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.001500
+br2_06_12_207.tdms, Group 2- 0.0015 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.001500
+br2_06_12_208.tdms, Group 2- 0.0015 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.001500
+br2_06_12_209.tdms, Group 2- 0.00015 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.000150
+br2_06_12_210.tdms, Group 2- 0.00015 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.000150
+br2_06_12_211.tdms, Group 2- 0.00015 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.000150
+br2_06_12_212.tdms, Group 2- 0.00015 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.000150
+br2_06_12_213.tdms, Group 2- 0.00015 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.000150
+br2_06_12_214.tdms, Group 2- 0.00015 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.000150
+br2_06_12_215.tdms, Group 2- 0.00015 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.000150
+br2_06_12_216.tdms, Group 2- 0.00015 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.000150
+br2_06_12_217.tdms, Group 3- 1.5 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 1.500000
+br2_06_12_218.tdms, Group 3- 1.5 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 1.500000
+br2_06_12_219.tdms, Group 3- 1.5 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 1.500000
+br2_06_12_220.tdms, Group 3- 1.5 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 1.500000
+br2_06_12_221.tdms, Group 3- 1.5 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 1.500000
+br2_06_12_222.tdms, Group 3- 1.5 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 1.500000
+br2_06_12_223.tdms, Group 3- 1.5 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 1.500000
+br2_06_12_224.tdms, Group 3- 1.5 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 1.500000
+br2_06_12_225.tdms, Group 3- 0.15 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.150000
+br2_06_12_226.tdms, Group 3- 0.15 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.150000
+br2_06_12_227.tdms, Group 3- 0.15 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.150000
+br2_06_12_228.tdms, Group 3- 0.15 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.150000
+br2_06_12_229.tdms, Group 3- 0.15 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.150000
+br2_06_12_230.tdms, Group 3- 0.15 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.150000
+br2_06_12_231.tdms, Group 3- 0.15 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.150000
+br2_06_12_232.tdms, Group 3- 0.15 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.150000
+br2_06_12_233.tdms, Group 3- 0.015 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.015000
+br2_06_12_234.tdms, Group 3- 0.015 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.015000
+br2_06_12_235.tdms, Group 3- 0.015 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.015000
+br2_06_12_236.tdms, Group 3- 0.015 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.015000
+br2_06_12_237.tdms, Group 3- 0.015 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.015000
+br2_06_12_238.tdms, Group 3- 0.015 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.015000
+br2_06_12_239.tdms, Group 3- 0.015 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.015000
+br2_06_12_240.tdms, Group 3- 0.015 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.015000
+br2_06_12_241.tdms, Group 3- 0.0015 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.001500
+br2_06_12_242.tdms, Group 3- 0.0015 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.001500
+br2_06_12_243.tdms, Group 3- 0.0015 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.001500
+br2_06_12_244.tdms, Group 3- 0.0015 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.001500
+br2_06_12_245.tdms, Group 3- 0.0015 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.001500
+br2_06_12_246.tdms, Group 3- 0.0015 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.001500
+br2_06_12_247.tdms, Group 3- 0.0015 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.001500
+br2_06_12_248.tdms, Group 3- 0.0015 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.001500
+br2_06_12_249.tdms, Group 3- 0.00015 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.000150
+br2_06_12_250.tdms, Group 3- 0.00015 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.000150
+br2_06_12_251.tdms, Group 3- 0.00015 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.000150
+br2_06_12_252.tdms, Group 3- 0.00015 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.000150
+br2_06_12_253.tdms, Group 3- 0.00015 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.000150
+br2_06_12_254.tdms, Group 3- 0.00015 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.000150
+br2_06_12_255.tdms, Group 3- 0.00015 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.000150
+br2_06_12_256.tdms, Group 3- 0.00015 pmol,  time=  0 q tip unconjugated Senior Scientific 25 Volume= 10.000000 Concentration= 0.000150

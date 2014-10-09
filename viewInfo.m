@@ -2,8 +2,8 @@ function varargout = viewInfo(filename)
 %info = viewInfo(filename) returns a dataset containing the header
 %information in filename.  filename can be a cell vector returned from
 %importData, a struct (element from cell vector above), a .mat or .tdms
-%file.  if run without supressed output, the dataset will be displayed, if
-%run with an output argument, the dataset will be saved in info.
+%file.   if run with an output argument (ie info), the dataset will be 
+%saved in info.
 
 if(iscell(filename))
     if length(filename)>1
@@ -13,15 +13,16 @@ if(iscell(filename))
     end
 elseif(isstruct(filename))
     if length(filename)>1
-       A = filename{1,1};
+       A = filename{1,1}.ConvertedData;
     else
-        A = filename;
+        A = filename.ConvertedData;
     end
 elseif(~isempty(strfind(filename,'.mat')))
     load(filename);
     A = ConvertedData;
 elseif(~isempty(strfind(filename,'.tdms')))
-    A = convertTDMS(0,filename);
+    A1 = convertTDMS(0,filename);
+    A = A1.ConvertedData;
 else
     disp('Not a supported file format');
     if(nargout)
