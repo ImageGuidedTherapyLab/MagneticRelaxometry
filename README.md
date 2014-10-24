@@ -2,6 +2,7 @@ Magnetic Relaxometry
 --------------------
 
  * [Project Overview](https://github.com/ImageGuidedTherapyLab/MagneticRelaxometry/blob/master/relaxometry.pdf)
+ * [Example Usage](https://github.com/ImageGuidedTherapyLab/MagneticRelaxometry/blob/master/MRXOutputMacro.pdf)
 
 Standard prefixes for commit messages
 -------------------------------------
@@ -29,3 +30,8 @@ following - `http://www.itk.org/Wiki/ITK/Coding_Style_Guide#Naming_Conventions`
  * Use of abbreviations is discouraged. (Abbreviation are allowable when in common use, and should be in uppercase as in RGB.) While this does result in long names, it self-documents the code.
  * If you learn how to use name completion in your editor (e.g.,Vim, Emacs), this inconvenience can be minimized. 
 
+Usage - run matlab code and publish as pdf
+------------------------------------------
+    opts.outputDir = '.';
+    opts.format = 'pdf';
+    publish('MRXOutputMacro',opts)
