@@ -12,11 +12,12 @@ if(iscell(filename))
         A = filename;
     end
 elseif(isstruct(filename))
-    if length(filename)>1
-       A = filename{1,1}.ConvertedData;
+    if(isfield(filename(1,1),'ConvertedData'))
+       A = filename(1,1).ConvertedData;
     else
-        A = filename.ConvertedData;
+        A = filename;
     end
+    
 elseif(~isempty(strfind(filename,'.mat')))
     load(filename);
     A = ConvertedData;
