@@ -20,8 +20,16 @@ for jj = 2:numFiles
         dataMat(:,ii-2) = [dataMat(:,ii-2)+ A.Data.MeasuredData(1,ii).Data];
     end
 end
-out = dataMat./numFiles;
-
+ out = dataMat./numFiles;
+% dataMat = dataMat./numFiles;
+% ii=1;
+% dataMat_onePulse = zeros(10000,8);
+% while( ii*10000 <= size(dataMat,1))
+%     start = (ii-1)*10000+1; stop = (ii)*10000;
+%     dataMat_onePulse = (dataMat_onePulse + dataMat(start:stop,:));
+%     ii=ii+1;
+% end
+% out = dataMat_onePulse./ii;
 if nargin >2
     for ii = 1:length(varargin)
         switch varargin{ii}

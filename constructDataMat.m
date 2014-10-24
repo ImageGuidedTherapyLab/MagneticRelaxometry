@@ -6,12 +6,20 @@ function dataMat = constructDataMat(matFile)
 
 switch class(matFile)
     case 'char'
-            load(matFile);
-            A = ConvertedData.Data.MeasuredData;
+        load(matFile);
+        if(isfield(matFile, 'ConvertedData'))
+            A = matFile.ConvertedData.Data.MeasuredData;
+        else
+            A = matFile.Data.MeasuredData;
+        end
     case 'cell'
         A = matFile{1,1}.ConvertedData.Data.MeasuredData;
     case 'struct'
-        A = matFile.ConvertedData.Data.MeasuredData;
+        if(isfield(matFile, 'ConvertedData'))
+            A = matFile.ConvertedData.Data.MeasuredData;
+        else
+            A = matFile.Data.MeasuredData;
+        end
 end
 
 for ii =1:8
