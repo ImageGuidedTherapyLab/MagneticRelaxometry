@@ -1,0 +1,110 @@
+
+simulation files
+At  your conference call last week it was requested that I do some simulated
+data calculations for possible use at MDA in ongoing calculations and testing.
+I have done a few of these as examples along with explanations to get this
+process started. They are done with a code I have developed over many years
+expanding from magnet design, to magnetic fields from the brain, to magnetic
+relaxometry. Unfortunately, the code is too large and too complicated to share
+but I have adapted it so I can quickly do simulations. I have put all of these
+results in a file on sugarsync along with the explanation that I duplicate
+below. Let me know if these are useful and if further calculations are desired.
+I should point out that these simulations have been used establish some of the
+actual physical parameters of the system such as the rotation angle of the
+dewar and also confirmation of sensitivity of the sensors since they are
+straightforward EM calculations.
+
+Simulation Data for Gen3 System at MDA
+
+A number of simulation calculations were made using the geometry of the Gen3
+system now at MDA. The results are in the file ‘simulations’ which has put on
+the sugarsync cloud as a shared file for the people on the conference call of
+last week. These are intended as starting points for discussion so feedback is
+necessary if more calculations are desired. The basic premise is to provide
+simulated data for a number of dipoles and for 1 and 5 standard stage
+positions. The coordinates of the sensors is given in file 1 below with the
+first 7 being at the central stage position and the following are for the stage
+being moved to positions shown in file 10 with the dipole positions shown in
+file 9 (Note the value of the z axis is negative for the dipoles to give a
+consistent coordinate system; same result if stage z had been used instead with
+positive values).
+
+All of the sim files show the fields (or flux) as a single row of values for
+the 7 sensors followed by a similar row for each stage position. The file name
+indicates number of dipoles and stage positions. These files can be directly
+input into the analysis code MSA code by clicking the Simulated Data? Button
+and then the LOAD DATA button to load the file in. The code looks for files
+ending in .sim. Note also that the stage coordinates must be input to the code
+when this is done as the .sim files do not contain this information. The stage
+coordinates used here are shown in file 10. Inputting these .sim files into MSA
+should give back exactly the dipole coordinates and strengths shown in these
+files. The exceptions are for a noise input where a random noise of 10pT was
+introduced (this is only an approximation of real noise as it is not
+synchronous across sensors but introduced randomly into each sensor output).
+This noise shows a small deviation in fit. The other exception is for flux
+calculation where there appears to be a small difference between the dipole
+parameters being input and those coming back from the MSA fit. It is not clear
+at this point if this is an error in the simulated flux data or the MSA flux
+calculation which has not been thoroughly checked out since its original coding
+by Trace Tessier. Some work is needed here. The flux is calculated for the 7
+channel circular sensors by dividing the face up into circles and triangles
+into 256 segments, calculating the field in each segment and multiplying by the
+area of that segment and then adding all of the segments together. It is
+calculated in picoWebers (pT-m-m).
+
+A few examples of contour plots for these fields and flux calculations are
+shown using the code DiaDem or the MSA code to indicate that multiple dipoles
+give contour lines that can be used to give guesses as to initial values for
+solving the inverse problem in MSA. All sims were done assuming 0 degree
+rotation angle for the dewar with respect to the stage as the actual dewar
+angle at MDA was not known.
+
+ 
+
+The folder simulations contains the following files
+
+1) Field&flux_vs_coords.xls: has all of the x, y, and z cords for five stage
+positions of a seven channel array with zero degree rotation about the dewar
+axis, Also has B and W for a five stage position and one dipole case.
+
+2) dip_1_stpos_1 .txt .sim: Values of B for a single dipole of 1.0E+05 pJ/T
+strength at 4 cm from the central sensor of the Gen3 system for one stage
+position. (see stage position and dipole position screen shots for coordinates
+and strengths0
+
+3) dip_1_stpos_5 .txt .sim: As above for 5 stage positions.
+
+4) dip_2_stpos_5 .txt .sim: two dipoles
+
+5) dip_3_stpos_5 .txt .sim: 3 dipoles
+
+6) dip_5_stpos_5 .txt .sim: 5 dipoles
+
+7) dip_3_stpos_5_noise .txt .sim: 3 dipoles with 10pT random noise
+
+8) pcdipole_ctl_panel.jpg: Screen shot of PcDipole control panel showing
+parameters used to simulate Gen3 system. The code was set to calculate the 7
+channel system. Note that the rotation angle of the dewar was set to 0 degrees
+and not the actual dewar angle of the MDA Gen3 system which was unknown. If the
+sim data above are fed into the MSA code using the simulation input, the code
+will need to be adjusted for this angle. (This is actually one way to determine
+the correct angle of the dewar orientation with respect to the stage.)
+
+9) pcdipole_dipolesl.jpg: Screen shot of the dipole parameters used in the sim calculations.
+
+10) pcdipole_stages.jpg: Screen shot of the stage parameters
+
+11) MSA_input_panel.jpg: Screen shot of MSA code used to fit above sim data.
+Note that the stage positions have to be fed in by hand based on the screen
+shot of the stage parameters.
+
+12) DiaDem_5dip_ctrs.jpg: Contour fields for the 5 dipole sim case from above using the code DiaDem
+
+13) MSA_5dip_ctrs.jpg: As in 12 but from the MSA code.
+
+14) dip_5_stpos_5_flux .txt .sim: As in 6 above but a flux calculation
+
+15) dip_1_stpos_5_flux .txt .sim: As in 3 but flux
+
+16) DiaDem_5dip_flux_ctrs.jpg: As in 12 but flux
+

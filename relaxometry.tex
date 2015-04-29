@@ -90,7 +90,10 @@ nanoparticles bound to different targets.
 \paragraph{Action Items:}  
 \begin{itemize}
 \item Develop a mathematical model of the Relaxometry detection system from 
-first principles \cite{Flynn2005}
+first principles \cite{Flynn2005}. The signal relaxation is assumed of the form:
+\[
+  F(t) = a_0 + a_1 \ln\left(1 + \frac{a_2}{t}\right) +a_3 \exp\left(-a_4 \; t\right)
+\]
 \item Acquire Phantom data in 1, 2, 3, 4, 5 point sources.  Build a data
 dictionary of signals from combinatorics of sources and source locations. 
    \begin{itemize}
