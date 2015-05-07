@@ -1,0 +1,57 @@
+READ ME FIRST
+
+By Eric Groszman, Sun K Choi, and Yunong Xu
+
+This folder contains a number of MATLAB files. Before running, please make sure that the path for this folder is added to MATLAB.
+
+Instructions for running true data tests are in the very bottom of this README doc.
+
+Below are descriptions for each file in this folder:
+
+nano_2d_main.m 
+	- main file for running the model
+	- here, one specifies the grid size and test number
+	- contains important subfunctions, including main method (see below)
+	
+	subfunctions:
+	grid2d
+		- LP model (main method)
+	nanoDraw
+		- for visualization of true vs. predicted solutions
+	mantexpnt 
+		- for optional visualization parameter to display the model error in the figure title
+
+nano_2d_testcases.m
+	contains 10 test cases to enable easier testing of model
+	the test case number is set by the user in nano_2d_main.m
+
+test_script_source_loc.m
+	- main function for real data tests
+	- displays the b vector for the data files of interest
+
+sensor_strength
+	- constructs the b (signal strength) vector from fitted data
+	- called by test_script_source_loc.m
+
+fit_data.m
+	- fits sensor data
+	- called by sensor_strength.m
+
+build_data_mat
+	- loads and cleans up raw data and stores it in a matrix format
+	- called by sensor_strength.m
+
+data (folder)
+	- raw data for real data tests gathered with MRXII (.mat files)
+	- data is point source signals at all possible positions of a 9 x 9 grid
+	- the script that loads the data (build_datamat) takes care of changing the path to access these files
+
+--- real data instructions ---
+
+	--> when testing real data, run test_script_source_loc.m for desired
+		dataset
+	--> copy the displayed b vector from the command window
+	--> paste the b vector after the b vector is constructed in grid2d 
+		(to overwrite the b vector)
+	--> choose desired N value in nano_2d_main
+	--> run
