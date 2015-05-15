@@ -1,0 +1,122 @@
+\documentclass[a4paper]{article}
+
+% ---------- packages
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{tabu}
+\usepackage{amssymb}
+\usepackage{algorithm2e}
+
+% ---------- to add line break in table
+\newcommand{\specialcell}[2][c]{%
+  \begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
+
+% ---------- Title
+\title{Linearization of the Biot Savart Law}
+\author{Sara Loupot}
+\date{May 11, 2015}
+
+
+\begin{document}
+
+\maketitle
+\section{Introduction}
+The Biot Savart Law describes the magnetic field as a function of distance from a magnetic dipole source.    This relationship is used in magnetic relaxometry to relate the signal received by the SQUID pickup coils to the location of the bound nanoparticles.  In order to create an image, the magnetic inverse problem must be solved.  This problem is ill-posed: there are more unknown parameters than known.  To employ state of the art methods to attempt to solve this problem, the non-linear Biot Savart relationship must be made into a linear form, Ax=b.  Under some assumptions, this can be done.
+
+\section{The Biot Savart Law}
+The Biot Savart Law states
+
+\begin{equation}
+\centering
+  \vec{B}(\vec{r},\vec{m}) = \frac{\mu_{0}}{4\pi}[\frac{3(\vec{m}*\vec{r})\vec{r}}{r^{5}}-\frac{\vec{m}}{r^{3}}]
+  \label{eq:BiotSavart}
+\end{equation}
+Where $\vec{B}$ is the magnetic field at a point $\vec{r}$ from a dipole $\vec{m}$.  Immediately after the field is turned off, the moment vector can be approximated as $\vec{m}= m\hat{z}$, which simplifies the dot product:
+\[\vec{m}*\vec{r}= m_{i}r_{i} = m_{z}r_{z}\]
+and the second term:
+\[\frac{\vec{m}}{r^{3}} = \frac{m_{z}}{r^{3}}\hat{z}\]
+The SQUIDs only detect $\vec{B}$ parallel to their axis.  If we assume they are arranged parallel to the $z$ axis then
+
+\begin{equation}
+\centering
+\vec{B}(\vec{r},\vec{m}) = (\vec{B}(\vec{r}))_{z} = \frac{\mu_{0}}{4\pi}[\frac{3m_{z}r_{z}}{r^{5}}r_{z}\hat{z} - \frac{m_{z}}{r^{3}}\hat{z}]
+\end{equation}
+which allows us to factor out $m_{z}$:
+\begin{equation}
+\vec{B}(\vec{r},\vec{m})=\frac{\mu_{0}}{4\pi}m_{z}[\frac{r_{z}^{2}}{r^{5}}-\frac{1}{r^{3}}]\hat{z}
+\end{equation}
+Now, $B$ is separable into 
+\begin{equation}
+\vec{B} = f(m_{z})g(\vec{r}) 
+\end{equation}
+where 
+\begin{equation}
+f(m_{z}) = \frac{\mu_{0}}{4\pi}m_{z}
+\end{equation}
+and 
+\begin{equation} \label{eq:g}
+g(\vec{r})=\frac{r_{z}^{2}}{r^{5}}-\frac{1}{r^{3}}
+\end{equation}
+Finally, the field detected by sensor $i$ is a linear combination of the field produced by each source $\vec{m}_{j}$ located at $\vec{r}_{ij}$ from the sensor.
+\begin{equation}
+B_{i}=\sum_{j}f(m_{j})g(\vec{r}_{ij})
+\end{equation}
+We then assume a discretized field of view with $j$ pixels, each with their own moment $m_{j}$ a distance $\vec{r}_{ij}$ from sensor $i$.  To construct the linear problem, define a $n\times1$ vector $\vec{B}$ of the field detected by sensor $i$ where $n$ is the number of sensors, a $m\times1$ vector $\vec{x}$ of the source from pixel $j$ where $m$ is the number of pixels, and a $m\times n$ matrix $A$ of $g(\vec{r}_{ij})$ where $\vec{r}_{ij}$ is the vector from pixel $j$ to sensor $i$, as defined in equation \ref{eq:g}.
+\begin{equation}
+\vec{B}_{i} = A_{ij}\vec{x}_{j}
+\label{eq:Axb}
+\end{equation}
+
+\begin{equation}
+\begin{bmatrix}
+B_{1}\\  
+\vdots\\ 
+B_{i}\\
+\vdots\\
+B_{n}
+\end{bmatrix}
+=
+\begin{bmatrix} \label{eq:fullMatrix}
+g(\vec{r}_{1,1}) & g(\vec{r}_{1,2}) & \dots  & g(\vec{r}_{1,m}) \\
+g(\vec{r}_{2,1}) & g(\vec{r}_{2,2}) & \dots & g(\vec{r}_{2,m})\\
+\vdots & \vdots & \ddots & \vdots\\
+g(\vec{r}_{n,1}) & g(\vec{r}_{n,2}) & \hdots & g(\vec{r}_{n,m})\\
+\end{bmatrix} 
+\begin{bmatrix}
+m_{1} \\ \vdots \\ m_{j} \\ \vdots \\ m_{m}
+\end{bmatrix}
+\end{equation}
+Since the location of the detectors with respect to the field of view grid points is defined, $\vec{x}$ is the only unknown.  
+\section{Linear Inverse solve}
+It would seem that the solution is trivial, with a simple linear inverse solve $x=A^{-1}b$.  However, since $n<<m$ the problem is still ill-posed.  There are an infinite number of exact solutions.  A simple inverse solution results in a solution of a source under each detector proportional to the strength of the signal received from that detector.  Clearly this is a viable solution, but it is unlikely to be the true solution.  
+\section{$l_{p}$ norm minimization}
+In the MRX application, we can assume that the true solution will be sparse:  only a few voxels will have a non-zero contribution to the net moment.  To increase the chances of converging to the true solution, we can attempt to find the minimum number of sources that still solve Equation \ref{eq:Axb} exactly.  The $l_p$ norm can be used to define sparsity with parameter p.
+ \begin{equation}
+ l_{p}(\vec{x})=\left[\sum_{i}x_{i}^{p}\right]^{1/p} 
+ \end{equation}
+When p=2, the $l_{p}$ norm is the magnitude of the vector $\vec{x}$.  When p=1, $l_{p}$ is the sum of the components of $\vec{x}$.  When p=0, $l_{p}$ is the number of non-zero entities of $\vec{x}$.  Ideally, to find the sparsest solution that satisfies the equality constraint, it would be best to minimize the $l_{p}$ norm.  Since the $l_0$ norm is not convex, it is difficult to compute explicitly. Instead, we must maximize sparsity by minimizing the L1 norm of $x$ while applying the condition that $Ax = b$.
+\begin{equation}
+\centering
+  \begin{array}{ll@{}r@{}r@{}l}
+    \text{min} & \sum\limits_{i} |x_i| \\[\jot]
+    \text{s.t.}& Ax = b \\
+    & \multicolumn{4}{l}{x \geq 0}
+  \end{array}
+\end{equation}
+Equation \ref{eq:Axb} can be solved by various methods.  The minimum norm solution will result in a solution biased to the grid points closest to the detectors \cite{Gorodnitsky}.  This can be mitigated by applying an unbiasing weighting factor to $A$.  Further resolution improvements can be made by iterating on the initial solution.
+
+\section{Future Work}
+
+From here we plan to investigate applying the FOCUSS algorithm to MRX image formation.  This will require improvements on the current assumptions, including a more accurate representation of the sensor geometry.  Different initial conditions will need to be investigated including using theoretical values and phantom data.  The regularization parameter will need to be optimized. The suitability of other algorithms such as MUSIC and BRAINSTORM will also be considered.
+
+
+\begin{thebibliography}{2}
+\bibitem{Gorodnitsky} Gorodnitsky, et. al. Neuromagnetic source imaging with FOCUSS: a recursive weighted minimum norm algorithm, Electroencepholography and clinical Neurophysiology 95 (1995) 231-251.
+\end{thebibliography}
+
+
+
+\end{document}
