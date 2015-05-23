@@ -59,6 +59,12 @@ http://stackoverflow.com/questions/3796927/how-to-git-clone-including-submodules
 
     $ git submodule update --init --recursive
 
+work from branch 
+---------------
+
+    git checkout -b fuentesdt
+    git push origin fuentesdt
+
 refresh all remotes' branches, adding new ones and deleting removed ones.
 ----------
 
