@@ -4,9 +4,9 @@
 \usepackage[english]{babel}
 \usepackage[utf8x]{inputenc}
 \usepackage{amsmath}
-\usepackage{graphicx}
+\usepackage[left=.5in,right=.5in,top=.5in,bottom=.5in]{geometry}
+\usepackage{color,graphicx}
 \usepackage{float}
-\usepackage{tabu}
 \usepackage{amssymb}
 \usepackage{algorithm2e}
 
@@ -31,44 +31,82 @@ The Biot Savart Law states
 
 \begin{equation}
 \centering
-  \vec{B}(\vec{r},\vec{m}) = \frac{\mu_{0}}{4\pi}[\frac{3(\vec{m}*\vec{r})\vec{r}}{r^{5}}-\frac{\vec{m}}{r^{3}}]
+  \vec{B}(\vec{r},\vec{m}) = \frac{\mu_{0}}{4\pi}
+    \left[
+      \frac{3(\vec{m}*\vec{r})\vec{r}}{r^{5}}-\frac{\vec{m}}{r^{3}}
+    \right]
   \label{eq:BiotSavart}
 \end{equation}
-Where $\vec{B}$ is the magnetic field at a point $\vec{r}$ from a dipole $\vec{m}$.  Immediately after the field is turned off, the moment vector can be approximated as $\vec{m}= m\hat{z}$, which simplifies the dot product:
-\[\vec{m}*\vec{r}= m_{i}r_{i} = m_{z}r_{z}\]
+Where $\vec{B}$ is the magnetic field at a point $\vec{r}$ from a dipole
+$\vec{m}$.  Immediately after the field is turned off, the moment vector can
+be approximated as only having a non-zero longitudinal component, $\vec{m}
+\approx m\hat{z}$, which simplifies the dot product:
+\[\vec{m}*\vec{r}= m_{i}r_{i} = m r_{z}\]
 and the second term:
-\[\frac{\vec{m}}{r^{3}} = \frac{m_{z}}{r^{3}}\hat{z}\]
+\[\frac{\vec{m}}{r^{3}} = \frac{m }{r^{3}}\hat{z}\]
 The SQUIDs only detect $\vec{B}$ parallel to their axis.  If we assume they are arranged parallel to the $z$ axis then
 
 \begin{equation}
 \centering
-\vec{B}(\vec{r},\vec{m}) = (\vec{B}(\vec{r}))_{z} = \frac{\mu_{0}}{4\pi}[\frac{3m_{z}r_{z}}{r^{5}}r_{z}\hat{z} - \frac{m_{z}}{r^{3}}\hat{z}]
+\vec{B}(\vec{r},\vec{m}) = (\vec{B}(\vec{r}))_{z} = \frac{\mu_{0}}{4\pi}
+    \left[\frac{3m r_{z}}{r^{5}}r_{z} - \frac{m }{r^{3}}
+    \right]\hat{z}
 \end{equation}
-which allows us to factor out $m_{z}$:
+which allows us to factor out $m $:
 \begin{equation}
-\vec{B}(\vec{r},\vec{m})=\frac{\mu_{0}}{4\pi}m_{z}[\frac{r_{z}^{2}}{r^{5}}-\frac{1}{r^{3}}]\hat{z}
+\vec{B}(\vec{r},\vec{m})=\frac{\mu_{0}}{4\pi}m [\frac{r_{z}^{2}}{r^{5}}-\frac{1}{r^{3}}]\hat{z}
 \end{equation}
-Now, $B$ is separable into 
+Now, $B$ is separable into  independent functions that depend on the moment
+and the distance.
 \begin{equation}
-\vec{B} = f(m_{z})g(\vec{r}) 
+\vec{B} = f(m )g(\vec{r}) 
 \end{equation}
 where 
 \begin{equation}
-f(m_{z}) = \frac{\mu_{0}}{4\pi}m_{z}
+f(m ) = \frac{\mu_{0}}{4\pi}m 
 \end{equation}
 and 
 \begin{equation} \label{eq:g}
 g(\vec{r})=\frac{r_{z}^{2}}{r^{5}}-\frac{1}{r^{3}}
 \end{equation}
-Finally, the field detected by sensor $i$ is a linear combination of the field produced by each source $\vec{m}_{j}$ located at $\vec{r}_{ij}$ from the sensor.
-\begin{equation}
-B_{i}=\sum_{j}f(m_{j})g(\vec{r}_{ij})
-\end{equation}
+
+\subsection{Discretization}
+
+We will assume a Galerkin discretization of our solution field, $m_z(r)$.
+\[
+  m(r) = \sum_j m_j \phi_j  (r)
+   \qquad 
+  \phi_j = 
+   \left\{ \begin{split}
+     1, \quad r \in    \Omega_j \\
+     0, \quad r \notin \Omega_j
+   \end{split}
+   \right.
+\]
+Here the imaging domain, $\Omega$, is decomposed into disjoint pixels,
+$\Omega_j$
+\[
+   \Omega = \cup_j \Omega_j
+  \qquad
+   \Omega_i  \cap \Omega_j = \emptyset
+\]
+
+
+Finally, the field detected by sensor $i$ is a linear combination of the
+field produced by each source $m_j$ 
+located at $\vec{r}_{ij}$ from
+the sensor. 
+ \[
+\vec{B}_i(m)=\frac{\mu_{0}}{4\pi}
+  \left(\sum_j m_j \phi_j  (\vec{r}_{ij})\right)
+  \underbrace{
+   \left[
+       \frac{r_{z_{ij}}^{2}}{r^{5}_{ij}}-\frac{1}{r^{3}_{ij}}
+   \right]
+   }_{g(\vec{r}_{ij})}
+ \hat{z}
+\]
 We then assume a discretized field of view with $j$ pixels, each with their own moment $m_{j}$ a distance $\vec{r}_{ij}$ from sensor $i$.  To construct the linear problem, define a $n\times1$ vector $\vec{B}$ of the field detected by sensor $i$ where $n$ is the number of sensors, a $m\times1$ vector $\vec{x}$ of the source from pixel $j$ where $m$ is the number of pixels, and a $m\times n$ matrix $A$ of $g(\vec{r}_{ij})$ where $\vec{r}_{ij}$ is the vector from pixel $j$ to sensor $i$, as defined in equation \ref{eq:g}.
-\begin{equation}
-\vec{B}_{i} = A_{ij}\vec{x}_{j}
-\label{eq:Axb}
-\end{equation}
 
 \begin{equation}
 \begin{bmatrix}
@@ -88,12 +126,100 @@ g(\vec{r}_{n,1}) & g(\vec{r}_{n,2}) & \hdots & g(\vec{r}_{n,m})\\
 \begin{bmatrix}
 m_{1} \\ \vdots \\ m_{j} \\ \vdots \\ m_{m}
 \end{bmatrix}
+\qquad
+\Leftrightarrow
+\vec{B} = A \; \vec{x}
 \end{equation}
 Since the location of the detectors with respect to the field of view grid points is defined, $\vec{x}$ is the only unknown.  
+
+Columns of the matrix, $A$, may be interpreted as 'distance' vectors  from
+magnetic source $j$ to each sensor.
+\[
+A = 
+\begin{bmatrix}
+ \vec{g}_1
+ &
+ \vec{g}_2
+ &
+ ...
+ &
+ \vec{g}_m
+\end{bmatrix}
+\qquad
+\vec{g}_j
+ = 
+\begin{bmatrix} 
+g(\vec{r}_{1,j}) & \\
+g(\vec{r}_{2,j}) & \\
+\vdots           & \\
+g(\vec{r}_{n,j}) & \\
+\end{bmatrix} 
+\]
+
+
+\subsection{Bias Correction }
+The bias correction of \cite{Gorodnitsky} is of the form
+ \[
+\vec{B}_i(m)=\frac{\mu_{0}}{4\pi}
+  \left(\sum_j  \frac{m_j}{\sqrt{\sum_{k=1}^n  g^2 (\vec{r}_{kj})}}  \phi_j(\vec{r}_{ij})\right)
+  \underbrace{
+   \left[
+       \frac{r_{z_{ij}}^{2}}{r^{5}_{ij}}-\frac{1}{r^{3}_{ij}}
+   \right]
+   }_{g(\vec{r}_{ij})}
+ \hat{z}
+\]
+The artificial term, $\sqrt{\sum_{k=1}^n  g^2 (\vec{r}_{kj})}$,
+represents the average distance of magnetic source $j$ to the sensors.
+ and allows numerical techniques more preferentially weight terms further from the sensor.
+\textit{\color{red} @saraloupot
+Is the physics is preserved ? NEED DIMENSIONAL ANALYSIS.
+units of $m$ must be changed to match the b-field. } 
+\[
+  r \quad \uparrow 
+\qquad \Rightarrow \qquad
+  g(r) \quad \downarrow 
+\qquad \Rightarrow \qquad
+  \frac{1}{g(r)} \quad \uparrow 
+\]
+The augmented equations is now of the form
+\[
+\vec{B} = \hat{A} \; \vec{x}
+\]
+where columns of the augmented system matrix are unit normalized
+\[
+\hat{A} = 
+\begin{bmatrix}
+ \frac{\vec{g}_1}{\|\vec{g}_1\|}
+ &
+ \frac{\vec{g}_2}{\|\vec{g}_2\|}
+ &
+ ...
+ &
+ \frac{\vec{g}_m}{\|\vec{g}_m\|}
+\end{bmatrix}
+\qquad
+\vec{g}_j
+ = 
+\begin{bmatrix} 
+g(\vec{r}_{1,j}) & \\
+g(\vec{r}_{2,j}) & \\
+\vdots           & \\
+g(\vec{r}_{n,j}) & \\
+\end{bmatrix} 
+\]
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Linear Inverse solve}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 It would seem that the solution is trivial, with a simple linear inverse solve $x=A^{-1}b$.  However, since $n<<m$ the problem is still ill-posed.  There are an infinite number of exact solutions.  A simple inverse solution results in a solution of a source under each detector proportional to the strength of the signal received from that detector.  Clearly this is a viable solution, but it is unlikely to be the true solution.  
 \section{$l_{p}$ norm minimization}
-In the MRX application, we can assume that the true solution will be sparse:  only a few voxels will have a non-zero contribution to the net moment.  To increase the chances of converging to the true solution, we can attempt to find the minimum number of sources that still solve Equation \ref{eq:Axb} exactly.  The $l_p$ norm can be used to define sparsity with parameter p.
+In the MRX application, we can assume that the true solution will be sparse:
+only a few voxels will have a non-zero contribution to the net moment.  To
+increase the chances of converging to the true solution, we can attempt to
+find the minimum number of sources that still solve Equation
+\ref{eq:fullMatrix} exactly.  The $l_p$ norm can be used to define sparsity with parameter p.
  \begin{equation}
  l_{p}(\vec{x})=\left[\sum_{i}x_{i}^{p}\right]^{1/p} 
  \end{equation}
@@ -106,7 +232,7 @@ When p=2, the $l_{p}$ norm is the magnitude of the vector $\vec{x}$.  When p=1, 
     & \multicolumn{4}{l}{x \geq 0}
   \end{array}
 \end{equation}
-Equation \ref{eq:Axb} can be solved by various methods.  The minimum norm solution will result in a solution biased to the grid points closest to the detectors \cite{Gorodnitsky}.  This can be mitigated by applying an unbiasing weighting factor to $A$.  Further resolution improvements can be made by iterating on the initial solution.
+Equation \ref{eq:fullMatrix} can be solved by various methods.  The minimum norm solution will result in a solution biased to the grid points closest to the detectors \cite{Gorodnitsky}.  This can be mitigated by applying an unbiasing weighting factor to $A$.  Further resolution improvements can be made by iterating on the initial solution.
 
 \section{Future Work}
 
