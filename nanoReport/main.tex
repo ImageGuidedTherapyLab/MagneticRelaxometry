@@ -7,7 +7,6 @@
 \usepackage{amsmath}
 \usepackage{graphicx}
 \usepackage{float}
-\usepackage{tabu}
 \usepackage{amssymb}
 
 % ---------- to add line break in table
@@ -84,13 +83,13 @@ We simplify the Biot-Savart Law to a inverse distance relationship between the s
 \subsubsection*{Summary}
 The following table summarizes the main properties and decisions made about each factor: \\
 
-$\begin{tabu}{|l|l|l|}\hline
+$\begin{tabular}{|l|l|l|}\hline
   \textbf{Factor} & \textbf{True properties} & \textbf{Model Decision} \\ \hline  
   \text{Domain} & \text{Continuous unit square} & \text{Discretized N x N grid} \\ \hline  
   \text{Nanoparticles} & \specialcell{Bound nanoparticles and\\error contribute to signal} & \specialcell{Solution will be sparse\\ Intensity of one nanoparticle\\ is one unit} \\ \hline  
   \text{Sensor-domain relationship} & \text{Biot-Savart Law} & \text{Inverse Distance} \\ \hline
   
-\end{tabu} $\\ \\
+\end{tabular} $\\ \\
 
 % ---------- Visual Representation of problem
 
@@ -262,14 +261,14 @@ A number of decay fit methods were tested and the degree-two exponential functio
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=1\textwidth]{raw_data.eps}
+\includegraphics[width=1\textwidth]{raw_data}
 \caption{Seven raw sensor decays for one pulse.}
 \label{Figure 2}
 \end{figure}
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=1\textwidth]{fitted_data.eps}
+\includegraphics[width=1\textwidth]{fitted_data}
 \caption{The fitted signals for each sensor. The fitted signal captures the decay pattern of each sensor. From this, we are able to characterize sensor signals with exp2 equation.}
 \label{Figure 3}
 \end{figure}
@@ -325,7 +324,7 @@ Below is Weighed error as a function of White Gaussian Noise:
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=1\textwidth]{noise_test.eps}
+\includegraphics[width=1\textwidth]{noise_test}
 \caption{The MRX II may operate in noisy environment. Thus we found an acceptable noise range that our model can intake by calculating weighted error. As you can see, the model begins to return inaccurate results starting at a noise level of 60 dBW.}
 \label{Figure 8}
 \end{figure}
