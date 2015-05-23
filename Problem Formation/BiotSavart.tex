@@ -4,20 +4,24 @@
 \usepackage[english]{babel}
 \usepackage[utf8x]{inputenc}
 \usepackage{amsmath}
-\usepackage[left=.5in,right=.5in,top=.5in,bottom=.5in]{geometry}
+\usepackage[left=.8in,right=.8in,top=.8in,bottom=.8in]{geometry}
 \usepackage{color,graphicx}
 \usepackage{float}
 \usepackage{amssymb}
-\usepackage{algorithm2e}
+\usepackage{algorithm,algorithmic}
 
+\newenvironment{definition}[1][Definition]{{\scriptsize\marginpar{#1}}\begin{trivlist}
+\item[\hskip \labelsep {\bfseries (Definition) #1}]}{\end{trivlist}}
 % ---------- to add line break in table
 \newcommand{\specialcell}[2][c]{%
   \begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
+\newcommand{\picdir}{./pdffig}
 
 % ---------- Title
 \title{Linearization of the Biot Savart Law}
-\author{Sara Loupot}
-\date{May 11, 2015}
+\author{Sara Loupot\\
+        David Fuentes}
+\date{May 23, 2015}
 
 
 \begin{document}
@@ -128,7 +132,7 @@ m_{1} \\ \vdots \\ m_{j} \\ \vdots \\ m_{m}
 \end{bmatrix}
 \qquad
 \Leftrightarrow
-\vec{B} = A \; \vec{x}
+b = A \; x
 \end{equation}
 Since the location of the detectors with respect to the field of view grid points is defined, $\vec{x}$ is the only unknown.  
 
@@ -184,7 +188,7 @@ units of $m$ must be changed to match the b-field. }
 \]
 The augmented equations is now of the form
 \[
-\vec{B} = \hat{A} \; \vec{x}
+b = \hat{A} \; \hat{x}
 \]
 where columns of the augmented system matrix are unit normalized
 \[
@@ -214,7 +218,10 @@ g(\vec{r}_{n,j}) & \\
 \section{Linear Inverse solve}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 It would seem that the solution is trivial, with a simple linear inverse solve $x=A^{-1}b$.  However, since $n<<m$ the problem is still ill-posed.  There are an infinite number of exact solutions.  A simple inverse solution results in a solution of a source under each detector proportional to the strength of the signal received from that detector.  Clearly this is a viable solution, but it is unlikely to be the true solution.  
-\section{$l_{p}$ norm minimization}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{$l_1$ norm minimization}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 In the MRX application, we can assume that the true solution will be sparse:
 only a few voxels will have a non-zero contribution to the net moment.  To
 increase the chances of converging to the true solution, we can attempt to
@@ -232,7 +239,434 @@ When p=2, the $l_{p}$ norm is the magnitude of the vector $\vec{x}$.  When p=1, 
     & \multicolumn{4}{l}{x \geq 0}
   \end{array}
 \end{equation}
-Equation \ref{eq:fullMatrix} can be solved by various methods.  The minimum norm solution will result in a solution biased to the grid points closest to the detectors \cite{Gorodnitsky}.  This can be mitigated by applying an unbiasing weighting factor to $A$.  Further resolution improvements can be made by iterating on the initial solution.
+We will solve this as a sequence of unconstrained Quadratic
+Penalty problems with a non-smooth objective function
+\[
+\min_x \|\Phi x\|_1 + \frac{1}{2 \mu}\|Ax-b\|_2^2
+\]
+For large $\mu$, the penalty function does not accurately enforce the
+constraint. As we have seen, typical approaches increasingly impose the constraint
+by letting $\mu \rightarrow 0$. 
+An alternative is to apply the Augmented Lagrangian approach or the 
+so-called Bregman iteration~\cite{goldstein2009split}
+where in the penalty term constants is fixed and we more accurately solve
+the constraint at each iteration. These approach introduce an
+auxillary variable $w \in \mathbb{R}^n$ and enforce the transformation
+to this variable.
+\[
+  \min_x \frac{1}{2} \|Ax -b\|_2^2 + \tau \|w\|_1
+\qquad
+\text{ such that}
+\quad
+\Phi x = w
+\]
+This may be interpreted in our previous notation as
+\[
+f(\hat{x}) = f(x,w) = \frac{1}{2} \|Ax -b\|_2^2 + \tau \|w\|_1
+\qquad
+\begin{bmatrix}
+c_1 \\
+c_2 \\
+ .  \\
+ .  \\
+\end{bmatrix}
+=
+\Phi x - w
+\]
+and the Augmented Lagrangian may be written as
+\[
+\mathcal{L}_a( \underbrace{x,w}_{\hat{x}},\lambda;\mu)
+=
+\underbrace{
+  \frac{1}{2} \|Ax -b\|_2^2 
++ \tau \|w\|_1
+}_{f(\hat{x})}
+-
+\underbrace{
+ ( \lambda ,\Phi x - w)
+}_{ \sum_i \lambda_i c_i(\hat{x})}
++ 
+\underbrace{
+\frac{1}{2 \mu} \|(\Phi x - w)\|_2^2
+}_{ \frac{1}{2 \mu} \sum_i c_i^2(\hat{x})}
+\]
+within the scope of Algorithm~\ref{AugmentedLagrangianApproach},
+given $\lambda^k$ and $\mu^k$, the subproblem is still
+formidable and contains L1 and L2 terms
+\[
+\min_{x,w}
+         \mathcal{L}_a(\cdot, \lambda^k; \mu^k)
+=
+\min_{x,w}
+  \frac{1}{2} \|Ax -b\|_2^2 
++ \tau \|w\|_1
+- ( \lambda^k ,\Phi x - w)
++ \frac{1}{2 \mu }\|(\Phi x - w)\|_2^2
+\]
+The Lagrangian may be written in an equivalent form, 
+using the linearity of the inner product
+\[
+\begin{split}
+\frac{1}{2c} (a-cb , a-cb) 
+& = 
+\frac{1}{2c} \left[
+             (a-cb , a)   
+                   -
+             (a-cb , cb)   
+             \right]
+= 
+\frac{1}{2c} \|a\|^2
+-
+\frac{1}{2c} c(b,a)
+-
+\frac{1}{2c} c(a,b)
++
+\frac{c^2}{2c} \|b\|^2
+=
+\frac{1}{2c} \|a\|^2
+-
+(a,b)
++
+\frac{c}{2} \|b\|^2
+\\
+& \Rightarrow
+\qquad
+\frac{1}{2c} \|a-cb\|^2
+-
+\frac{c}{2} \|b\|^2
+=
+\frac{1}{2c} \|a\|^2
+-
+(a,b)
+\end{split}
+\]
+and minimizing with respect to $(x,w)$,
+$ \frac{\mu}{2  }\| \lambda^k \|_2^2$  may be considered a constant
+\[
+\min_{x,w}
+         \mathcal{L}_a(\cdot, \lambda^k; \mu^k)
+=
+\min_{x,w}
+  \frac{1}{2} \|Ax -b\|_2^2 
++ \tau \|w\|_1
++ \frac{1}{2 \mu }\|\Phi x   - w - \mu \lambda^k \|_2^2
+- \frac{\mu}{2  }\| \lambda^k \|_2^2
+\quad
+\Leftrightarrow
+\quad
+\min_{x,w}
+  \frac{1}{2} \|Ax -b\|_2^2 
++ \tau \|w\|_1
++ \frac{1}{2 \mu }\|\Phi x   - w - \mu \lambda^k \|_2^2
+\]
+The approach becomes tractable if we break the subproblem
+up into an L1 subproblem and L2 subproblem using
+an alternating direction or coordinate descent techinque.
+%\[
+%\begin{split}
+%  w^k, \lambda^k \text{ fixed }
+% \qquad
+%&\min_x 
+%  \frac{1}{2} \|Ax -b\|_2^2 
+%- (\lambda^k ,\Phi x - w^k)
+%+ \frac{1}{2 \mu }\|\Phi x - w^k\|_2^2
+%\\
+%  x^k, \lambda^k \text{ fixed }
+%\qquad
+%& \min_w 
+%  \tau \|w\|_1
+%- (\lambda^k ,\Phi x^k - w)
+%+ \frac{1}{2 \mu }\|\Phi x^k - w\|_2^2
+%\end{split}
+%\]
+\[
+\begin{split}
+\underbrace{\text{ L2 subproblem }}_{w^k , \lambda^k \text{ fixed}}
+\qquad
+&\min_x 
+  \frac{1}{2} \|Ax -b\|_2^2 
++ \frac{1}{2 \mu }\|\Phi x   - w^k - \mu \lambda^k \|_2^2
+\\
+\underbrace{\text{ L1 subproblem }}_{x^k , \lambda^k \text{ fixed}}
+\qquad
+& \min_w 
+  \tau \|w\|_1
++ \frac{1}{2 \mu }\|\Phi x^k - w   - \mu \lambda^k \|_2^2
+\end{split}
+\]
+A summary of the Augmented Lagrangian Algorithm in this context is presented in 
+Algorithm \ref{AugmentedLagrangianApproachCompressedSensing}.
+Notice that we have converted the constrained problem
+into two unconstrained problems. 
+
+\begin{algorithm}                      % enter the algorithm environment
+\caption{Augmented Lagrangian Approach For CS}% give the algorithm a caption
+\label{AugmentedLagrangianApproachCompressedSensing}               % and a label for \ref{} commands later in the document
+\begin{algorithmic}                    % enter the algorithmic environment
+        \STATE
+\[
+  \min_{x,w} \frac{1}{2} \|H(x)\|_2^2 + \tau \| w\|_1
+\qquad
+\text{ such that}
+\quad
+\Phi x = w
+\qquad
+H(x) = Ax-b
+\]
+    \REQUIRE $\mu > 0$, tolerance $\tau > 0$, and initial guess $w^0=0$, and $\lambda^0=0$
+    \WHILE{not converged, ie $\|\Phi x^k - w^k \| > \epsilon$ and $\|H(x^k)\|_2^2 > \epsilon$}
+        \STATE Solve $L_2$ subproblem. 
+             \[
+                x^{k+1} = \min_x \frac{1}{2} \|H(x)\|_2^2  + \frac{1}{2\mu} \|\Phi x -w^k - \mu \lambda^k \|_2^2
+             \]
+         The derivative of this objective function for the subproblem $f_\text{L2sub}$ is given by
+             \[
+             \nabla f_\text{L2sub}
+             =
+             A^\top 
+             \left(
+             A x - b
+             \right)
+             + 
+             \frac{1}{\mu} \Phi^\top 
+             \left(
+             \Phi x - w^k - \mu \lambda^k
+             \right)
+             \]
+        \STATE Solve $L_1$ subproblem. 
+             \[ \begin{split}
+	        w^{k+1} = \min_w \tau \|w\|_1 & + \frac{1}{2\mu} \|\Phi x^{k+1} - w - \mu \lambda^k \|_2^2
+                 \\
+                 w_i & = \text{soft}_{\tau \mu} \left( (\Phi x^k)_i- \mu\lambda_i \right)
+                 \\
+                     &  \text{soft}_a(b) \equiv \frac{b}{|b|} \max (0,|b|-a)
+             \end{split}\]
+        \STATE Update Lagrange Multiplier.
+             \[
+                \lambda^{k+1} = \lambda^k -  \frac{1}{\mu} (\Phi x^{k+1} -w^{k+1})
+             \]
+    \ENDWHILE
+\end{algorithmic}
+\end{algorithm}
+
+\paragraph{Derivatives}
+The L2 subproblem may be solved
+with a linesearch or trust region approach using finite difference or analytical derivatives.
+For the general case
+\[
+\min_{\vec{x} \in \mathbb{R}^n}  f(\vec{x})
+=
+\min_{\vec{x} \in \mathbb{R}^n}  \frac{1}{2} \vec{h}^\top(\vec{x}) \vec{h}(\vec{x})
+\qquad
+\vec{h}(\vec{x}) = 
+\begin{bmatrix}
+A \vec{x} - \vec{b}
+\\
+\frac{1}{\sqrt{\mu}}
+\left(
+\Phi \vec{x} - \vec{w} - \mu \vec{\lambda} 
+\right)
+\end{bmatrix}
+\]
+The gradient of the objective function $f(\vec{x})$ is given 
+as the matrix vector product of the Jacobian transpose times the
+residual.
+\[
+\left(
+\nabla f
+\right)_i
+=
+\frac{\partial}{\partial x_i} 
+\left( 
+\frac{1}{2} 
+\sum_l^m h_l h_l
+\right) 
+ = 
+\left( 
+\sum_l^m h_l 
+\frac{\partial h_l}{\partial x_i} 
+\right) 
+\qquad
+\nabla f = J^\top \vec{h}
+\qquad
+J_{ij}    
+=
+\frac{\partial h_i}{\partial x_j} 
+\qquad
+J
+=
+\begin{bmatrix}
+A
+\\
+\frac{1}{\sqrt{\mu}}
+\Phi
+\end{bmatrix}
+\]
+Applying this formula to each term in our L2 subproblem yeilds
+\[
+\nabla
+\left(
+  \frac{1}{2} \|H(x)\|_2^2 
++ \frac{1}{2 \mu }\|\Phi x   - w^k - \mu \lambda^k \|_2^2
+\right)
+=
+\begin{bmatrix}
+A
+\\
+\frac{1}{\sqrt{\mu}}
+\Phi
+\end{bmatrix}^\top
+\begin{bmatrix}
+A \vec{x} - \vec{b}
+\\
+\frac{1}{\sqrt{\mu}}
+\left(
+\Phi \vec{x} - \vec{w} - \mu \vec{\lambda} 
+\right)
+\end{bmatrix}
+=
+A^\top 
+\left(
+A x - b
+\right)
++ 
+\frac{1}{\mu} \Phi^\top 
+\left(
+\Phi x - w^k - \mu \lambda^k
+\right)
+\]
+\paragraph{Soft Thresholding Operator}
+The L1 subproblem is (perhaps surprisingly) now given
+by the soft thresholding operator
+\[
+  w_i = \text{soft}_{\tau \mu} \left( (\Phi x^k)_i- \mu\lambda_i \right)
+\qquad
+  \text{soft}_a(b) \equiv \frac{b}{|b|} \max (0,|b|-a)
+\]
+To see this, we need to generalize our definition
+of the derivative for $\|\cdot\|_1$. Consider the subdifferentiable 
+of the L1 problem
+\[
+0 
+\quad \in \quad
+  \tau \frac{w_i}{|w|_i}
+- \frac{1}{\mu} 
+\left(
+(\Phi x^k ))_i
+- w_i
+- \mu \lambda^k_i
+\right)
+\]
+
+\begin{figure}[h]
+\centering
+\begin{tabular}{cc}
+\scalebox{0.31}{\includegraphics*{\picdir/SubdifferentialDef}}
+&
+\scalebox{0.41}{\includegraphics*{\picdir/SubdifferentialAbsValue}}
+\\
+(a) & (b) \\
+\end{tabular}
+\caption{Subdifferential.
+(a) If $f$ is  differentiable, then the gradient is the  subgradient.
+However, the subgradient may exist when the gradient does not exist.
+In fact there may be several subgradients at this point.
+(b) Absolute value. Consider $f(z) = |z|$. 
+For $x < 0$ the subgradient is unique:
+$\partial f(x) = \{-1\}$. 
+Similarly, for $x > 0$ we have $\partial f(x) = \{1\}$. 
+At $x = 0$ the subdifferential
+is defined by the inequality
+ $|z| > g z $ for all $z$, which is satisfied if and only if $ g \in
+[-1, 1]$.  Therefore we have $\partial f(0) = [-1, 1]$.
+}\label{SubdifferentialExample}
+\end{figure}
+\begin{definition}[Subdifferential]
+We say a vector $g \in \mathbb{R}^n$ is a \textbf{subgradient}
+of $f:\mathbb{R}^n \rightarrow \mathbb{R}$ at $x \in \mathbb{R}^n$ if
+\[
+   f(z) \geq f(x)  + g^\top (z-x)  \qquad \forall z
+\]
+The \textbf{set} of subgradients of $f$ at the point $x$  is called the
+\textbf{subdifferential} at $x$ and is denoted $\partial f(x)$.
+\[
+  \partial f(x)  
+\equiv
+\left\{ g: 
+   f(z) \geq f(x)  + g^\top (z-x)  \qquad \forall z
+\right\}
+\]
+\end{definition}
+
+To illustrate the solution to this equation
+consider
+\[
+ 0 \in a \text{ sign}(x) + x -b
+\quad \Leftrightarrow \quad
+ b \in a \text{ sign}(x) + x 
+\qquad
+ \text{ sign}(x) 
+\equiv
+\left\{
+\begin{split}
+-1       & \quad x<0
+\\
+(-1,1)   & \quad x=0
+\\
+1        & \quad x>0
+\end{split}
+\right.
+\]
+
+\begin{figure}[h]
+\centering
+\scalebox{0.41}{\includegraphics*{\picdir/l1subproblem}}
+\caption{Solution to $L_1$ subproblem. (Provided by W. Stefan)}
+\label{SolutionL1SubProblem}
+\end{figure}
+
+As seen in Figure~\ref{SolutionL1SubProblem},
+when does $ b = x + a \; \text{sign}(x) $ ? 
+\begin{itemize}
+\item[Case I]
+  \[
+  b > a 
+  \quad \Rightarrow \quad
+  b = x + a
+  \quad \Rightarrow \quad
+  x = b -a
+  \]
+\item[Case II]
+  \[
+  |b| < a 
+  \quad \Rightarrow \quad
+   x = 0
+  \]
+\item[Case III]
+  \[
+  b < - a 
+  \quad \Rightarrow \quad
+  b = x - a
+  \quad \Rightarrow \quad
+  x = b + a
+  \]
+\end{itemize}
+
+These three cases can be convienently expressed by the so-called
+soft threshold operator. One may directly verify that:
+\[
+x = \text{soft}_a(b) = \frac{b}{|b|} \max (0,|b|-a) 
+  = 
+  \left\{
+   \begin{split}
+      b+a  & \quad  b     < -a \\
+       0   & \quad |b| \leq -a \\
+      b-a  & \quad  b     >  a \\
+   \end{split}
+  \right.
+\]
+The solution to the L1 problem is given by a change of
+variables.
 
 \section{Future Work}
 
@@ -241,6 +675,12 @@ From here we plan to investigate applying the FOCUSS algorithm to MRX image form
 
 \begin{thebibliography}{2}
 \bibitem{Gorodnitsky} Gorodnitsky, et. al. Neuromagnetic source imaging with FOCUSS: a recursive weighted minimum norm algorithm, Electroencepholography and clinical Neurophysiology 95 (1995) 231-251.
+
+\bibitem[Goldstein and Osher, 2009]{goldstein2009split}
+Goldstein, T. and Osher, S. (2009).
+\newblock The split bregman method for l1 regularized problems.
+\newblock {\em SIAM Journal on Imaging Sciences}, 2(2):323--343.
+
 \end{thebibliography}
 
 
