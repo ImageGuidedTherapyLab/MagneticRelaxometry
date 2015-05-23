@@ -1,6 +1,9 @@
 Magnetic Relaxometry
 --------------------
 
+Code, notes, and writeup 
+
+ * publications are projects stored in a self contained git repo that contain code as well as write-up
  * [Project Overview](https://github.com/ImageGuidedTherapyLab/MagneticRelaxometry/blob/master/relaxometry.pdf)
  * [Example Usage](https://github.com/ImageGuidedTherapyLab/MagneticRelaxometry/blob/master/MRXOutputMacro.pdf)
 
@@ -35,3 +38,84 @@ Usage - run matlab code and publish as pdf
     opts.outputDir = '.';
     opts.format = 'pdf';
     publish('MRXOutputMacro',opts)
+
+Submodule Organization
+----------------------
+
+http://git-scm.com/book/en/v2/Git-Tools-Submodules#Starting-with-Submodules
+
+ * proposals and pdf presentations stored as single git repo organized by funding source
+   * submodules are used to point to publications within funding source
+
+    git submodule add git@github.com:ImageGuidedTherapyLab/MagneticRelaxometry.git publications/MagneticRelaxometry
+    git commit -am 'DOC: paper'
+
+Submodule Usage
+---------------
+
+http://git-scm.com/book/en/v2/Git-Tools-Submodules#Cloning-a-Project-with-Submodules
+
+http://stackoverflow.com/questions/3796927/how-to-git-clone-including-submodules
+
+    $ git submodule update --init --recursive
+
+refresh all remotes' branches, adding new ones and deleting removed ones.
+----------
+
+    git remote update --prune
+
+remove large file from history
+----------
+https://help.github.com/articles/remove-sensitive-data/
+
+ * run from top of repo and push changes
+
+    git filter-branch --force --index-filter  'git rm --cached --ignore-unmatch path/to/largefiles/*' --prune-empty --tag-name-filter cat -- --all
+    git push origin --force --all
+
+ * other forks/branchnes need to rebase to the master... dangerous ?  (http://git-scm.com/book/en/v2/Git-Branching-Rebasing)
+
+    git pull --rebase origin master
+
+
+extract a subdirectory as a new repo
+----------
+https://help.github.com/articles/splitting-a-subfolder-out-into-a-new-repository/
+
+ * git filter-branch --prune-empty --subdirectory-filter YOUR_FOLDER_NAME master
+ * git push my-new-repo -f .
+
+
+Merging Repos
+----------
+
+http://stackoverflow.com/questions/13040958/merge-two-git-repositories-without-breaking-file-history
+
+Here's a way that doesn't rewrite any history, so all commit IDs will remain valid. The end-result is that the second repo's files will end up in a subdirectory.
+
+1. Add the second repo as a remote:
+
+   cd firstgitrepo/
+   git remote add -f secondrepo username@servername:andsoon
+
+2. Create a local branch from the second repo's branch:
+
+   git branch branchfromsecondrepo secondrepo/master; git checkout branchfromsecondrepo
+
+3. Move all its files into a subdirectory:
+
+   mkdir subdir/
+   git ls-tree -z --name-only HEAD | xargs -0 -I {} git mv {} subdir/
+
+4.  Merge the second branch into the first repo's master branch:
+
+   git commit -m "STYLE: organizing files"; git checkout master; git merge branchfromsecondrepo
+
+5. clean up
+
+   git branch -D branchfromsecondrepo; git remote rm secondrepo
+
+6. git log --follow file
+
+   Continue listing the history of a file beyond renames (works only for a single file).
+
