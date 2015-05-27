@@ -174,11 +174,16 @@ The bias correction of \cite{Gorodnitsky} is of the form
  \hat{z}
 \]
 The artificial term, $\sqrt{\sum_{k=1}^n  g^2 (\vec{r}_{kj})}$,
-represents the average distance of magnetic source $j$ to the sensors.
- and allows numerical techniques more preferentially weight terms further from the sensor.
+represents the average distance of magnetic source $j$ to the sensors and allows numerical techniques more preferentially weight terms further from the sensor.
 \textit{\color{red} @saraloupot
 Is the physics is preserved ? NEED DIMENSIONAL ANALYSIS.
 units of $m$ must be changed to match the b-field. } 
+\begin{equation}
+\vec{B}_i \left[\frac{N}{Am}\right] = \frac{\mu_{0}}{4\pi} \left[\frac{N}{A^{2}}\right] \left(\sum_j  \frac{m_{j} [Am^2]}{\sqrt{\sum_{k=1}^n  g^2 (\vec{r}_{kj})}}  \phi_j(\vec{r}_{ij})\right)g(\vec{r}_{ij})\left[\frac{1}{m^3}\right]
+\end{equation}
+\begin{equation}
+\left[\frac{N}{Am}\right] = \left[\frac{N}{A^2}\right]\left[A m^2\right]\left[\frac{1}{m^3}\right]
+\end{equation}
 \[
   r \quad \uparrow 
 \qquad \Rightarrow \qquad
